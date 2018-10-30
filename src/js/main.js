@@ -4,14 +4,7 @@
         $(this).closest('.menu')
           .toggleClass('menu_state_open');
       });
-      
-      $('.menu__links-item').on('click', function() {
-        $(this).closest('.menu')
-          .removeClass('menu_state_open');
-      });
     });
-
-
 
 
     $(".menu__links-search").on("click",function(){
@@ -42,17 +35,26 @@
       });
     })
 
+    $('.menu__links-item').click(function() {
+      $(this).siblings().removeClass('active');
+      $(this).toggleClass('active');
+    })
 
+    $('.submenu__item').click(function() {
+      $(this).siblings().removeClass('active');
+      $(this).toggleClass('active');
+    })
 
-    $('.grid').masonry({
-      itemSelector: '.grid__item',
-      columnWidth: 390,
-      isResizable: true,
-      isAnimated: true,
-      isFitWidth: true,
-      animationOptions: { 
-	      queue: false, 
-	      duration: 500 
-	    },
-    });
+    const scrollBtn = $('[data-scroll]');  
+    function onClick(e) {
+      e.preventDefault(); 
+      const target = $(this).attr('data-scroll');  
+      const dist = $(target).offset().top; 
+      $('html, body').animate({ scrollTop: dist }, 1000, 'swing'); 
+    }
+    scrollBtn.on('click', onClick); 
+
 })(jQuery);
+
+
+ 
