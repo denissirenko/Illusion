@@ -12,6 +12,12 @@
     });
 
 
+    $('.grid').masonry({
+      itemSelector: '.grid__item',
+      columnWidth: 390,
+    });
+
+
     $('.tab__content_item').hide();
     $('.tab__content_item:first').show();
     $('.tabs li:first').addClass('active');
