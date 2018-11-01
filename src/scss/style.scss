@@ -125,6 +125,9 @@ ul {
     text-decoration: none;
     transition: color 0.3s ease-in;
     cursor: pointer;
+    .menu__links-input.open {
+        margin-top: 35px;
+    }
     & > a {
         line-height: 99px;
     }
