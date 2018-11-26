@@ -60,6 +60,23 @@
     }
     scrollBtn.on('click', onClick); 
 
+    var btn_top = $('.btn-top');
+
+    function scrollUp () {
+      var top = $(this).scrollTop();
+      var windowHeight = $(window).height();
+      if (top > windowHeight) {
+        btn_top.fadeIn(500);
+      }
+      else {
+        btn_top.fadeOut(500);
+      }
+    }
+
+    scrollUp();
+
+    $(document).on('scroll', scrollUp);
+
 })(jQuery);
 
 
